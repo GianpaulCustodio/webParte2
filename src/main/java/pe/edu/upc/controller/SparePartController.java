@@ -86,7 +86,6 @@ public class SparePartController {
 		}
 		model.put("listSpareParts", spService.list());
 
-//		return "redirect:/categories/list";
 		return "/sparepart/listSparePart";
 	}
 

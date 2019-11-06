@@ -55,6 +55,8 @@ public class BrandController {
 		}
 		return "/brand/brand";
 	}
+	
+	
 
 	@GetMapping("/list")
 	public String listBrands(Model model) {

@@ -150,12 +150,10 @@
 									<tr align="center" th:each="bra: ${listBrands}">
 									<td th:text="${bra.id_Brand}"></td>
 									<td th:text="${bra.n_Brand}"></td>
-
-									<td><a th:href="@{/brands/delete?id_Brand=}+${bra.id_Brand}"
+									<td><a th:href="@{/brands/delete?id_Brand=}+${bra.id_Brand}"									
 										class="btn btn-secondary">Eliminar</a></td>
-									<td align="center"><a
-										
-										class="btn btn-secondary">Actualizar</a></td>
+									<td> <a th:href="@{'/brands/update/' + ${bra.id_Brand}}" 
+									class="btn btn-secondary">Modificar</a></td>
 								</tr>
 
 								</tbody>

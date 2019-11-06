@@ -18,13 +18,13 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import pe.edu.upc.entity.Role;
-import pe.edu.upc.service.IRoleService;
+import pe.edu.upc.service.IRolService;
 
 @Controller
 @RequestMapping("/roles")
 public class RoleController {
 	@Autowired
-	private IRoleService rService;
+	private IRolService rService;
 
 	@RequestMapping("/index")
 	public String welcome() {

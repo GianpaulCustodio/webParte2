@@ -8,18 +8,17 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.entity.Role;
 import pe.edu.upc.repository.IRoleRepository;
-import pe.edu.upc.service.IRoleService;
-
+import pe.edu.upc.service.IRolService;
 
 @Service
-public class RoleServiceImpl implements IRoleService {
-
+public class RolServiceImpl implements IRolService {
+	
 	@Autowired
 	private IRoleRepository rR;
 
 	@Override
 	public Integer insert(Role role) {
-		int aux = rR.findByN_Role(role.getN_Role());
+		int aux = rR.findByN_Rol(role.getN_Rol());
 		if (aux == 0) {
 			rR.save(role);
 		}
@@ -40,6 +39,5 @@ public class RoleServiceImpl implements IRoleService {
 	public void delete(int id_Role) {
 		rR.deleteById(id_Role);		
 	}
-
 
 }

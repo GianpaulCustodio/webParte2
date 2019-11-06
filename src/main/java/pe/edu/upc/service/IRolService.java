@@ -5,12 +5,12 @@ import java.util.Optional;
 
 import pe.edu.upc.entity.Role;
 
-public interface IRoleService {
+public interface IRolService {
 	public Integer insert(Role role);
 
 	public List<Role> list();
 
-	Optional<Role> listId(int id_Role);
+	Optional<Role> listId(int id_Rol);
 
-	public void delete(int id_Role);
+	public void delete(int id_Rol);
 }

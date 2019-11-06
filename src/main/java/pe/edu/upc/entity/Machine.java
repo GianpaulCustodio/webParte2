@@ -20,7 +20,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "Machine")
 public class Machine {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Machine;

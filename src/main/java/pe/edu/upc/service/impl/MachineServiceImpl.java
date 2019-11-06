@@ -21,7 +21,7 @@ public class MachineServiceImpl implements IMachineService {
 	@Override
 	@Transactional
 	public Integer insert(Machine machine) {
-		int rpta = sP.findbyC_Machine(machine.getC_Machine());
+		int rpta = sP.findbyCMachine(machine.getcMachine());
 		if (rpta == 0) {
 			sP.save(machine);
 		}
@@ -38,7 +38,7 @@ public class MachineServiceImpl implements IMachineService {
 	@Transactional(readOnly = true)
 	public List<Machine> list() {
 		// TODO Auto-generated method stub
-		return sP.findAll(Sort.by(Sort.Direction.ASC, "c_Machine"));
+		return sP.findAll(Sort.by(Sort.Direction.ASC, "cMachine"));
 	}
 
 	@Override

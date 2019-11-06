@@ -127,14 +127,14 @@
 					<form th:action="@{/machines/save}" th:object="${machine}"
 						method="post">
 						<div class="form-group row">
-							<label for="c_Machine" class="col-sm-2 col-form-label">Maquina</label>
+							<label for="cMachine" class="col-sm-2 col-form-label">Maquina</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{c_Machine}"
+								<input autofocus type="text" th:field="*{cMachine}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('c_Machine')}"
-									th:errors="*{c_Machine}"></small>
+									th:if="${#fields.hasErrors('cMachine')}"
+									th:errors="*{cMachine}"></small>
 							</div>
 						</div>
 						
@@ -150,10 +150,10 @@
 						</div>
 						
 						<div class="form-group row">
-							<label for="d_Machine" class="col-sm-2 col-form-label">Fecha:
+							<label for="date" class="col-sm-2 col-form-label">Fecha:
 							</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{d_Machine}" class="form-control"
+								<input type="date" th:field="*{d_Machine}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('d_Machine')}" th:errors="*{d_Machine}"></small>
@@ -186,7 +186,7 @@
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/machinefs/list" class="btn btn-danger">Cancelar</a>
+								<a href="/machines/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 						<p th:text="${mensaje}" class="form-text text-danger"></p>

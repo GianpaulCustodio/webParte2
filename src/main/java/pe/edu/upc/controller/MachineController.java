@@ -87,6 +87,8 @@ public class MachineController {
 			return "redirect:/machine/listMachines";
 		} else {
 			model.addAttribute("machine", machine);
+			model.addAttribute("listBrands", bService.list());
+			model.addAttribute("listAreamachines", amService.list());
 			return "/machine/machine";
 		}
 	}

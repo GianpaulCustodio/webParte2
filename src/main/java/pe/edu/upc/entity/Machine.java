@@ -1,6 +1,6 @@
 package pe.edu.upc.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -25,12 +26,13 @@ public class Machine {
 	private int id_Machine;
 
 	@NotEmpty(message = "Ingrese su codigo del producto*")
-	@Column(name = "c_Machine", nullable = false, length = 90)
-	private String c_Machine;
+	@Column(name = "cMachine", nullable = false, length = 90)
+	private String cMachine;
 
 	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "d_Machine")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date d_Machine;
 
 	@ManyToOne
@@ -58,12 +60,13 @@ public class Machine {
 		this.id_Machine = id_Machine;
 	}
 
-	public String getC_Machine() {
-		return c_Machine;
+	
+	public String getcMachine() {
+		return cMachine;
 	}
 
-	public void setC_Machine(String c_Machine) {
-		this.c_Machine = c_Machine;
+	public void setcMachine(String cMachine) {
+		this.cMachine = cMachine;
 	}
 
 	public Date getD_Machine() {

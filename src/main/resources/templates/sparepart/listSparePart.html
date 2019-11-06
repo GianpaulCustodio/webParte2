@@ -158,7 +158,9 @@
 										<td><a
 											th:href="@{/spareparts/delete?id_Sparepart=}+${s.id_Sparepart}"
 											class="btn btn-secondary">Eliminar</a></td>
-										<td align="center"><a class="btn btn-secondary">Actualizar</a></td>
+											
+										<td> <a th:href="@{'/spareparts/update/' + ${s.id_Sparepart}}" 
+									class="btn btn-secondary">Modificar</a></td>
 									</tr>
 
 								</tbody>

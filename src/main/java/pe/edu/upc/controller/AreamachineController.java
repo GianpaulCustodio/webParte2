@@ -81,7 +81,7 @@ public class AreamachineController {
 	}
 
 	@RequestMapping("/delete")
-	public String deleteAreamachines(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
+	public String deleteAreamachines(Map<String, Object> model, @RequestParam(value = "id_Areamachine") Integer id) {
 		try {
 			if (id != null && id > 0) {
 

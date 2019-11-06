@@ -32,7 +32,7 @@ public class Machine {
 	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "d_Machine")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date d_Machine;
 
 	@ManyToOne

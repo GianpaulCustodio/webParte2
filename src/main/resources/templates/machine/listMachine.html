@@ -153,7 +153,7 @@
 									<tr align="center" th:each="s: ${listMachines}">
 										<td th:text="${s.id_Machine}"></td>
 										<td th:text="${s.cMachine}"></td>
-										<td th:text="${s.d_Machine}"></td>
+										<td th:text="${#dates.format(s.d_Machine,'dd/MM/yyyy')}"></td>
 										<td th:text="${s.brand.n_Brand}"></td>
 										<td th:text="${s.areamachine.n_Areamachine}"></td>
 

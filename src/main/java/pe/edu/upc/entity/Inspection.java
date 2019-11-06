@@ -39,8 +39,8 @@ public class Inspection {
 	//private User id_User
 	
 	@NotEmpty(message = "Debe ingresar descripcion")
-	@Column(name = "T_Inspection",nullable = false,length = 50)
-	private String T_Inspection;
+	@Column(name = "tInspection",nullable = false,length = 50)
+	private String tInspection;
 
 	public int getId_Inspection() {
 		return id_Inspection;
@@ -57,8 +57,6 @@ public class Inspection {
 	public void setD_Inspection(Date d_Inspection) {
 		D_Inspection = d_Inspection;
 	}
-
-
 	
 	public Machine getC_Machine() {
 		return cMachine;
@@ -68,11 +66,21 @@ public class Inspection {
 		this.cMachine = c_Machine;
 	}
 
-	public String getT_Inspection() {
-		return T_Inspection;
+	public Machine getcMachine() {
+		return cMachine;
 	}
 
-	public void setT_Inspection(String t_Inspection) {
-		T_Inspection = t_Inspection;
+	public void setcMachine(Machine cMachine) {
+		this.cMachine = cMachine;
 	}
+
+	public String gettInspection() {
+		return tInspection;
+	}
+
+	public void settInspection(String tInspection) {
+		this.tInspection = tInspection;
+	}
+
+	
 }

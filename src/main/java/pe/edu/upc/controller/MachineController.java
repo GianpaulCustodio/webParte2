@@ -78,6 +78,7 @@ public class MachineController {
 		return "/machine/listMachine";
 	}
 	
+	
 	@RequestMapping("/update/{id}")
 	public String updateMachine(@PathVariable int id, Model model, RedirectAttributes objRedir) {
 		Optional<Machine> machine = mService.listId(id);

@@ -1,44 +1,46 @@
 package pe.edu.upc.service.impl;
 
 import java.util.List;
-
-import javax.transaction.Transactional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import pe.edu.upc.entity.SparePart;
+import pe.edu.upc.entity.Sparepart;
 import pe.edu.upc.repository.ISparePartRepository;
 import pe.edu.upc.service.ISparePartService;
-
 @Service
 public class SparePartServiceImpl implements ISparePartService {
-	
 	@Autowired
-	private ISparePartRepository spR;
+	private ISparePartRepository sP;
 
 	@Override
-	public Integer insert(SparePart sparepart) {
-		int rpta = spR.findNameSparePart(sparepart.getN_SparePart());
+	@Transactional
+	public Integer insert(Sparepart sparepart) {
+		int rpta = sP.findbyN_SparePart(sparepart.getnSparepart());
 		if (rpta == 0) {
-			spR.save(sparepart);
+			sP.save(sparepart);
 		}
 		return rpta;
 	}
 
-
+	@Override
 	@Transactional
-	@Override
-	public List<SparePart> list() {
-		// TODO Auto-generated method stub
-		return spR.findAll(Sort.by(Sort.Direction.ASC, "n_SparePart"));
+	public void delete(int id_Sparepart) {
+		sP.deleteById(id_Sparepart);
 	}
 
 	@Override
-	public void delete(int id_SparePart) {
+	@Transactional(readOnly = true)
+	public List<Sparepart> list() {
 		// TODO Auto-generated method stub
-		spR.deleteById(id_SparePart);
+		return sP.findAll(Sort.by(Sort.Direction.ASC, "nSparepart"));
 	}
-
+	
+	@Override
+	public Optional<Sparepart> listId(int id_Sparepart) {
+		return sP.findById(id_Sparepart);
+	}
 }

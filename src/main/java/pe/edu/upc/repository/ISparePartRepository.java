@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import pe.edu.upc.entity.SparePart;
+import pe.edu.upc.entity.Sparepart;
 @Repository
-public interface ISparePartRepository extends JpaRepository<SparePart, Integer> {
-	@Query("select count(c.n_SparePart) from SparePart c where c.n_SparePart =:n_SparePart")
-	public int findNameSparePart(@Param("n_SparePart") String n_SparePart);
+public interface ISparePartRepository extends JpaRepository<Sparepart, Integer>{
+	@Query("select count(s.nSparepart) from Sparepart s where s.nSparepart =:nSparepart")
+	public int findbyN_SparePart(@Param("nSparepart") String nSparepart);
+
 }

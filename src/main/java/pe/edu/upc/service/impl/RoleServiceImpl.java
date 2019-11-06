@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.upc.entity.Role;
 import pe.edu.upc.repository.IRoleRepository;
-import pe.edu.upc.service.IRolService;
+import pe.edu.upc.service.IRoleService;
 
 @Service
-public class RolServiceImpl implements IRolService {
+public class RoleServiceImpl implements IRoleService {
 	
 	@Autowired
 	private IRoleRepository rR;

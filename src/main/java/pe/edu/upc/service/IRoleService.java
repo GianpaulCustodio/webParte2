@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import pe.edu.upc.entity.Role;
 
-public interface IRolService {
+public interface IRoleService {
 	public Integer insert(Role role);
 
 	public List<Role> list();

@@ -20,7 +20,8 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	@Transactional
 	public Integer insert(Users user) {
-		int rpta = uR.findbyN_SparePart(user.getN_User());
+		user.setF_Estado(true);
+		int rpta = uR.findbyN_User(user.getnUser());
 		if (rpta == 0) {
 			uR.save(user);
 		}
@@ -37,7 +38,7 @@ public class UserServiceImpl implements IUserService {
 	@Transactional(readOnly = true)
 	public List<Users> list() {
 		// TODO Auto-generated method stub
-		return uR.findAll(Sort.by(Sort.Direction.ASC, "n_User"));
+		return uR.findAll(Sort.by(Sort.Direction.ASC, "nUser"));
 	}
 	
 	@Override

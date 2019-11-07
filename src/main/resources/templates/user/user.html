@@ -13,8 +13,8 @@
 <title>SB Admin - Register</title>
 
 <!-- Custom fonts for this template-->
-<link href="/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 
 <!-- Custom styles for this template-->
 <link href="/css/sb-admin.css" rel="stylesheet">
@@ -27,29 +27,29 @@
 		<div class="card card-register mx-auto mt-5">
 			<div class="card-header">Registro de Usuario:</div>
 			<div class="card-body">
-				<form th:action="@{/users/save}" th:object="${user}" method="post">
+				<form th:action="@{/users/save}" th:object="${users}" method="post">
 					<div class="form-group">
 						<div class="form-row">
 
 							<div class="col-md-6">
 								<div class="form-label-group">
-									<input type="text"  class="form-control" th:field="*{n_FirstName}"
-										required="required"
+									<input type="text" class="form-control"
+										th:field="*{nFirstName}" required="required"
 										autofocus="autofocus"><small
 										class="form-text text-danger"
-										th:if="${#fields.hasErrors('n_FirstName')}" th:errors="*{n_FirstName}"></small>
-									<label>First name</label>
+										th:if="${#fields.hasErrors('nFirstName')}"
+										th:errors="*{nFirstName}"></small> <label>First name</label>
 								</div>
 
 							</div>
 							<div class="col-md-6">
 								<div class="form-label-group">
-									<input type="text"  class="form-control" th:field="*{n_lastName}"
-										required="required"
-										autofocus="autofocus"><small
+									<input type="text" class="form-control" th:field="*{nlastName}"
+										required="required" autofocus="autofocus"><small
 										class="form-text text-danger"
-										th:if="${#fields.hasErrors('n_lastName')}" th:errors="*{n_lastName}"></small>
-									<label for="firstName">Last name</label>
+										th:if="${#fields.hasErrors('nlastName')}"
+										th:errors="*{nlastName}"></small> <label for="firstName">Last
+										name</label>
 								</div>
 							</div>
 
@@ -60,19 +60,21 @@
 							<div class="col-md-6">
 								<div class="form-label-group">
 									<input type="text" th:field="*{d_user}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('d_user')}" th:errors="*{d_user}"></small> <label>DNI</label>
+										th:errorclass="'form-control alert-danger'" /> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('d_user')}" th:errors="*{d_user}"></small>
+									<label>DNI</label>
 								</div>
-								
-								
+
+
 							</div>
 							<div class="col-md-6">
 								<div class="form-label-group">
 									<input type="date" th:field="*{dateOf}" class="form-control"
-									th:errorclass="'form-control alert-danger'" /> <small
-									class="form-text text-danger"
-									th:if="${#fields.hasErrors('dateOf')}" th:errors="*{dateOf}"></small> <label>Fecha de nacimiento</label>
+										th:errorclass="'form-control alert-danger'" /> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('dateOf')}" th:errors="*{dateOf}"></small>
+									<label>Fecha de nacimiento</label>
 								</div>
 							</div>
 						</div>
@@ -88,13 +90,13 @@
 
 							<div class="col-md-6">
 								<div class="col-md-">
-									<div class="form-label-group">							
-									<select class="custom-select custom-select-sm"
-									th:field="*{role}">
-									<option th:each="role : ${listRoles}"
-										th:value="${role.id_Rol}" th:utext="${role.n_Rol}" ><label>Rol</label></option>
-									</select>
-										
+									<div class="form-label-group">
+										<select class="custom-select custom-select-sm"
+											th:field="*{role}">
+											<option th:each="role : ${listRoles}"
+												th:value="${role.id_Rol}" th:utext="${role.n_Rol}"><label>Rol</label></option>
+										</select>
+
 									</div>
 								</div>
 
@@ -109,26 +111,29 @@
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<input type="text"  class="form-control" th:field="*{n_User}"
-										required="required"
-										autofocus="autofocus"><small
-										class="form-text text-danger"
-										th:if="${#fields.hasErrors('n_User')}" th:errors="*{n_User}"></small>
-									<label>User name</label>
+							<input type="text" class="form-control" th:field="*{nUser}"
+								required="required" autofocus="autofocus"><small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('nUser')}" th:errors="*{nUser}"></small>
+							<label>User name</label>
 						</div>
 
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-								<div class="form-label-group">
-									<input type="password" id="inputPassword" class="form-control"
-										placeholder="Password" required="required"> <label
-										for="inputPassword">Contraseña</label>
-								</div>	
+							<div class="form-label-group">
+								<input type="password" class="form-control"
+									th:field="*{security_key}" required="required"
+									autofocus="autofocus"> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('security_key')}"
+									th:errors="*{security_key}"></small><label>Contraseña</label>
+							</div>
 						</div>
 					</div>
-					<input type="submit" value="Registrer" class="btn btn-primary btn-block"></input>
+					<input type="submit" value="Registrer"
+						class="btn btn-primary btn-block"></input>
 				</form>
 				<div class="text-center">
 					<a class="d-block small mt-3" href="login.html">Login Page</a> <a

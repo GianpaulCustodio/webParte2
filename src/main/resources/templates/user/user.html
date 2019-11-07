@@ -34,11 +34,11 @@
 							<div class="col-md-6">
 								<div class="form-label-group">
 									<input type="text" class="form-control"
-										th:field="*{nFirstName}" required="required"
+										th:field="*{nFirstname}" required="required"
 										autofocus="autofocus"><small
 										class="form-text text-danger"
-										th:if="${#fields.hasErrors('nFirstName')}"
-										th:errors="*{nFirstName}"></small> <label>First name</label>
+										th:if="${#fields.hasErrors('nFirstname')}"
+										th:errors="*{nFirstname}"></small> <label>First name</label>
 								</div>
 
 							</div>
@@ -48,7 +48,7 @@
 										required="required" autofocus="autofocus"><small
 										class="form-text text-danger"
 										th:if="${#fields.hasErrors('nlastName')}"
-										th:errors="*{nlastName}"></small> <label for="firstName">Last
+										th:errors="*{nlastName}"></small> <label >Last
 										name</label>
 								</div>
 							</div>

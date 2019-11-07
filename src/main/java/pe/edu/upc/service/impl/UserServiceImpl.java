@@ -27,6 +27,13 @@ public class UserServiceImpl implements IUserService {
 		}
 		return rpta;
 	}
+	
+	@Override
+	@Transactional
+	public void status_change(Users user) {
+	
+			uR.save(user);
+	}
 
 	@Override
 	@Transactional
@@ -44,5 +51,12 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public Optional<Users> listId(int id_User) {
 		return uR.findById(id_User);
+	}
+	@Override
+	@Transactional
+	public Users change_status(Users user)
+	{
+		user.setF_Estado(!user.getF_Estado());
+		return user;
 	}
 }

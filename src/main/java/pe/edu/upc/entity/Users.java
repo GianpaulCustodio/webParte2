@@ -35,8 +35,8 @@ public class Users implements Serializable {
 	
 	
 	@NotEmpty(message = "Ingrese su nombre")
-	@Column(name = "nFirstName", nullable = false, length = 70)
-	private String nFirstName;
+	@Column(name = "nFirstname", nullable = false, length = 70)
+	private String nFirstname;
 
 	@NotEmpty(message = "Ingrese su apellido")
 	@Column(name = "nlastName", nullable = false, length = 70)
@@ -78,14 +78,20 @@ public class Users implements Serializable {
 	}
 
 
-	public String getnFirstName() {
-		return nFirstName;
+	
+
+
+	public String getnFirstname() {
+		return nFirstname;
 	}
 
 
-	public void setnFirstName(String nFirstName) {
-		this.nFirstName = nFirstName;
+	public void setnFirstname(String nFirstname) {
+		this.nFirstname = nFirstname;
 	}
+
+
+	
 
 
 	public String getNlastName() {
@@ -156,6 +162,9 @@ public class Users implements Serializable {
 	public void setF_Estado(Boolean f_Estado) {
 		this.f_Estado = f_Estado;
 	}
+
+
+
 
 	
 

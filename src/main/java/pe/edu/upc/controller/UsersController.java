@@ -1,6 +1,5 @@
 package pe.edu.upc.controller;
 
-import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,7 +35,7 @@ public class UsersController {
 	}
 
 	@PostMapping("/save")
-	public String saveSparePart(@Valid Users user, BindingResult result, Model model, SessionStatus status)
+	public String saveSparePart( Users user, BindingResult result, Model model, SessionStatus status)
 			throws Exception {
 		if (result.hasErrors()) {
 			model.addAttribute("listRoles", rService.list());
@@ -55,7 +53,7 @@ public class UsersController {
 		}
 		model.addAttribute("listUsers", uService.list());
 
-		return "/user/user";
+		return "/user/listUser";
 	}
 
 	@GetMapping("/list")
@@ -79,24 +77,23 @@ public class UsersController {
 		} else {
 			model.addAttribute("users", user);
 			model.addAttribute("listRoles", rService.list());
-			return "/user/user";
+			return "/user/modifuser";
 		}
 	}
-
-	@RequestMapping("/delete")
-	public String deleteSparePart(Map<String, Object> model, @RequestParam(value = "id_User") Integer id) {
-		try {
-			if (id != null && id > 0) {
-
-				uService.delete(id);
-				model.put("listUsers", uService.list());
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar");
-			model.put("listUsers", uService.list());
-
+	@RequestMapping("/estado/{id}")
+	public String EstadoSparePart(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+		Optional<Users> user = uService.listId(id);
+		
+		
+		if (user == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
+			return "redirect:/user/listUsers";
+		} else {
+			user.get().setF_Estado(!(user.get().getF_Estado()));
+			uService.status_change(user.get());
+			model.addAttribute("listUsers", uService.list());
+			return "/user/listUser";
 		}
-		return "/user/listUsers";
 	}
+	
 }

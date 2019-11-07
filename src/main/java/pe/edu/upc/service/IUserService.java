@@ -12,4 +12,8 @@ public interface IUserService {
 
 	List<Users> list();
 	Optional<Users> listId(int id_User);
+	public Users change_status(Users user);
+	public void status_change(Users user);
+	
+	
 }

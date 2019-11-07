@@ -11,7 +11,7 @@ public interface IInspectionService {
 
 	public List<Inspection> list();
 
-	Optional<Inspection> listId(int id_Inspection);
+	Optional<Inspection> listId(int idInspection);
 
-	public void delete(int id_Inspection);
+	public void delete(int idInspection);
 }

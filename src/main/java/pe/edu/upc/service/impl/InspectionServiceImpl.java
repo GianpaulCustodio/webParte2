@@ -21,28 +21,25 @@ public class InspectionServiceImpl implements IInspectionService {
 	
 	@Override
 	public Integer insert(Inspection inspection) {
-int aux = iR.findbyID_Inspection(inspection.getD_Inspection());
-		if(aux == 0) {
+		int aux = 0;
 			iR.save(inspection);
-		}
 		return aux;
 	}
 
 	@Override
 	public List<Inspection> list() {
-		// TODO Auto-generated method stub
-		return iR.findAll(Sort.by(Sort.Direction.ASC,"id_Inspection"));
+		return iR.findAll(Sort.by(Sort.Direction.ASC,"idInspection"));
 	}
 
 	@Override
-	public Optional<Inspection> listId(int id_Inspection) {
+	public Optional<Inspection> listId(int idInspection) {
 		// TODO Auto-generated method stub
-		return iR.findById(id_Inspection);
+		return iR.findById(idInspection);
 	}
 
 	@Override
-	public void delete(int id_Inspection) {
-		iR.deleteById(id_Inspection);
+	public void delete(int idInspection) {
+		iR.deleteById(idInspection);
 		
 	}
 

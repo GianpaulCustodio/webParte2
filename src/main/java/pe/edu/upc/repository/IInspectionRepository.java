@@ -11,9 +11,5 @@ import pe.edu.upc.entity.Inspection;
 
 @Repository
 public interface IInspectionRepository extends JpaRepository<Inspection,Integer> {
-	@Query("select count(i.d_Inspection) from Inspection i where i.d_Inspection =:d_Inspection")
-	public int findbyID_Inspection(@Param("d_Inspection") Date d_Inspection);
 
-	
-	
 }

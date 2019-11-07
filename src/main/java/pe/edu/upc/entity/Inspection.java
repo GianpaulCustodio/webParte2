@@ -23,12 +23,12 @@ public class Inspection {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_inspection")
-	private int id_inspection;
+	@Column(name = "idInspection")
+	private int idInspection;
 
 	@Column(name = "d_Inspection")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date d_Inspection;
 
 	@ManyToOne
@@ -43,14 +43,7 @@ public class Inspection {
 	@Column(name = "tInspection",nullable = false,length = 50)
 	private String tInspection;
 
-	public int getId_Inspection() {
-		return id_inspection;
-	}
-
-	public void setId_Inspection(int id_Inspection) {
-		this.id_inspection = id_Inspection;
-	}
-
+	
 	public Date getD_Inspection() {
 		return d_Inspection;
 	}
@@ -75,13 +68,23 @@ public class Inspection {
 		this.user = user;
 	}
 
-	public String getT_Inspection() {
+	public int getIdInspection() {
+		return idInspection;
+	}
+
+	public void setIdInspection(int idInspection) {
+		this.idInspection = idInspection;
+	}
+
+	public String gettInspection() {
 		return tInspection;
 	}
 
-	public void setT_Inspection(String t_Inspection) {
-		this.tInspection = t_Inspection;
+	public void settInspection(String tInspection) {
+		this.tInspection = tInspection;
 	}
+
+	
 
 
 

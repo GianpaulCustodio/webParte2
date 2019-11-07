@@ -78,9 +78,8 @@ public class InspectionController {
 	
 	
 	@RequestMapping("/update/{id}")
-	public String updateMachine(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+	public String updateInspection(@PathVariable int id, Model model, RedirectAttributes objRedir) {
 		Optional<Inspection> inspection = iService.listId(id);
-
 		if (inspection == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/inspection/listInspections";
@@ -93,7 +92,7 @@ public class InspectionController {
 	}
 	
 	@RequestMapping("/delete")
-	public String deleteInspection(Map<String, Object> model, @RequestParam(value = "id_Inspection") Integer id) {
+	public String deleteInspection(Map<String, Object> model, @RequestParam(value = "idInspection") Integer id) {
 		try {
 			if (id != null && id > 0) {
 				iService.delete(id);

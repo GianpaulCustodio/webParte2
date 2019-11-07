@@ -80,10 +80,10 @@
 				<a class="dropdown-item"  th:href="@{/areamachines/list}" >Area</a> <a
 						class="dropdown-item" th:href="@{/brands/list}" >Marca</a> <a
 						class="dropdown-item" th:href="@{/spareparts/list}">Repuesto</a> <a
-						class="dropdown-item" href="forgot-password.html">Maquina</a> <a
-						class="dropdown-item" href="forgot-password.html">Inspección</a> <a
-						class="dropdown-item" href="forgot-password.html">Matenimiento</a>
-					<a class="dropdown-item" href="forgot-password.html">Usuario</a>
+						class="dropdown-item" href="@{/machines/list}">Maquina</a> <a
+						class="dropdown-item" href="@{/inspections/list}">Inspección</a> <a
+						class="dropdown-item" href="@{/maintenances/list}">Matenimiento</a>
+					<a class="dropdown-item" href="@{/users/list}">Usuario</a>
 					<div class="dropdown-divider"></div>
 				</div></li>
 
@@ -127,25 +127,25 @@
 					<form th:action="@{/inspections/save}" th:object="${inspection}"
 						method="post">
 						<div class="form-group row">
-							<label for="tInspection" class="col-sm-2 col-form-label">Inspeccion</label>
+							<label for="tInspection" class="col-sm-2 col-form-label">Observaciones</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{t_Inspection}"
+								<input autofocus type="text" th:field="*{tInspection}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('t_Inspection')}"
-									th:errors="*{t_Inspection}"></small>
+									th:if="${#fields.hasErrors('tInspection')}"
+									th:errors="*{tInspection}"></small>
 							</div>
 						</div>
 						
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Id</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{id_inspection}" class="form-control"
+								<input type="text" th:field="*{idInspection}" class="form-control"
 									readonly th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('id_inspection')}"
-									th:errors="*{id_inspection}"></small>
+									th:if="${#fields.hasErrors('idInspection')}"
+									th:errors="*{idInspection}"></small>
 							</div>
 						</div>
 						<div class="form-group row">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
 <meta charset="utf-8">
@@ -13,15 +13,15 @@
 <title>SB Admin - Dashboard</title>
 
 <!-- Custom fonts for this template-->
-<link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
 
 <!-- Page level plugin CSS-->
-<link href="../static/vendor/datatables/dataTables.bootstrap4.css"
+<link href="/vendor/datatables/dataTables.bootstrap4.css"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="../static/css/sb-admin.css" rel="stylesheet">
+<link href="/css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -39,16 +39,13 @@
 		<!-- Navbar Search -->
 		<form
 			class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-			<div class="input-group">
-				
-				
-			</div>
+			<div class="input-group"></div>
 		</form>
 
 		<!-- Navbar -->
 		<ul class="navbar-nav ml-auto ml-md-0">
-			
-			
+
+
 			<li class="nav-item dropdown no-arrow"><a
 				class="nav-link dropdown-toggle" href="#" id="userDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -56,8 +53,8 @@
 			</a>
 				<div class="dropdown-menu dropdown-menu-right"
 					aria-labelledby="userDropdown">
-					<h6 class="dropdown-header">Usuario:</h6> <a
-						class="dropdown-item">Alejandro</a>
+					<h6 class="dropdown-header">Usuario:</h6>
+					<a class="dropdown-item">Alejandro</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#" data-toggle="modal"
 						data-target="#logoutModal">Logout</a>
@@ -80,13 +77,13 @@
 			</a>
 
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a class="dropdown-item" href="login.html">Area</a> <a
-						class="dropdown-item" href="login.html">Marca</a> <a
-						class="dropdown-item" href="register.html">Repuesto</a> <a
-						class="dropdown-item" href="forgot-password.html">Maquina</a> <a
-						class="dropdown-item" href="forgot-password.html">Inspección</a> <a
-						class="dropdown-item" href="forgot-password.html">Matenimiento</a>
-					<a class="dropdown-item" href="forgot-password.html">Usuario</a>
+						<a class="dropdown-item"  th:href="@{/areamachines/list}" >Area</a> <a
+						class="dropdown-item" th:href="@{/brands/list}" >Marca</a> <a
+						class="dropdown-item" th:href="@{/spareparts/list}">Repuesto</a> <a
+						class="dropdown-item" th:href="@{/machines/list}" >Maquina</a> <a
+						class="dropdown-item" th:href="@{/inspections/list}" >Inspección</a> <a
+						class="dropdown-item" th:href="@{/maintenances/list}" >Matenimiento</a>
+					<a class="dropdown-item"  th:href="@{/users/list}">Usuario</a>
 					<div class="dropdown-divider"></div>
 				</div></li>
 
@@ -113,92 +110,31 @@
 		</ul>
 
 		<div id="content-wrapper">
-
 			<div class="container-fluid">
+				<div class="container-fluid">
 
-				<!-- Breadcrumbs-->
-				
-
-				<!-- Icon Cards-->
-				
-
-				<!-- Area Chart Example-->
-				
-
-				<!-- DataTables Example -->
-				
-				
-				
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fas fa-table"></i> Usuarios
-					</div>
+					<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800">Bienvenidos a Inca Mar S.A.C.</h1>
 					
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable">
-								<thead>
-									<tr>
-										<th>Nombres</th>
-										<th>Apellidos</th>
-										<th>DNI</th>
-										<th>Estado</th>
-										<th>Fecha de Nac.</th>
-										
-										<th>Operaciones</th>
-									</tr>
-								</thead>
-								
-								<tbody>
-									<tr>
-										<td>Antony Lucio</td>
-										<td>Quispe Palacios</td>
-										<td>68912558</td>
-										<td>INACTIVO</td>
-										<td>23/07/1998</td>
-										<td>Activar Desactivar</td>
-									</tr>
-									<tr>
-										<td>Diego Omar</td>
-										<td>Aguilar Loja</td>
-										<td>48962558</td>
-										<td>ACTIVO</td>
-										<td>21/09/1998</td>
-										<td>Activar Desactivar</td>
-									</tr>
-									<tr>
-										<td>Alejandro Valentín</td>
-										<td>Zeña Morales</td>
-										<td>12547889</td>
-										<td>ACTIVO</td>
-										<td>14/02/1997</td>
-										<td>Activar Desactivar</td>
-									</tr>
-									<tr>
-										<td>Luis Sebastian</td>
-										<td>Dioses Ojeda</td>
-										<td>54789665</td>
-										<td>ACTIVO</td>
-										<td>15/08/1999</td>
-										<td>Activar Desactivar</td>
-									</tr>
-									<tr>
-										<td>Gianpaul Valentin</td>
-										<td>Custodio Chavarría</td>
-										<td>57896651</td>
-										<td>INACTIVO</td>
-										<td>14/05/1999</td>
-										<td>Activar Desactivar</td>
-									</tr>
-									
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="card-footer small text-muted">Rosita ♥</div>
-				</div>
-
-			</div>
+					<h1 class="h3 mb-4 text-gray-800">Misión</h1>
+					<img src="https://assets.trome.pe/files/article_main/uploads/2017/12/06/5a2856dd73790.jpeg"width="300" height="100"><br>
+					
+					
+					<span>Somos una empresa dedicada a la elaboración y comercialización de 
+					conservas de pescado de calidad brindando confianza y seguridad a nuestros clientes.</span>
+					
+					
+					
+					<h1 class="h3 mb-4 text-gray-800">Visión</h1>
+					<img src="http://pe.abcmultinegocios.com/wp-content/uploads/2016/12/Incamar-abcmultinegocios.jpg"width="300" height="100"><br>
+					<span>Somos una empresa dedicada a la elaboración y comercialización de 
+					conservas de pescado de calidad brindando confianza y seguridad a nuestros clientes.</span>
+					
+					
+					<h1 class="h3 mb-4 text-gray-800">Productos</h1>
+					
+					
+					
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
@@ -245,23 +181,23 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="../static/vendor/jquery/jquery.min.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Page level plugin JavaScript-->
-	<script src="../static/vendor/chart.js/Chart.min.js"></script>
-	<script src="../static/vendor/datatables/jquery.dataTables.js"></script>
-	<script src="../static/vendor/datatables/dataTables.bootstrap4.js"></script>
+	<script src="/vendor/chart.js/Chart.min.js"></script>
+	<script src="/vendor/datatables/jquery.dataTables.js"></script>
+	<script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="../static/js/sb-admin.min.js"></script>
+	<script src="/js/sb-admin.min.js"></script>
 
 	<!-- Demo scripts for this page-->
-	<script src="../static/js/demo/datatables-demo.js"></script>
-	<script src="../static/js/demo/chart-area-demo.js"></script>
+	<script src="/js/demo/datatables-demo.js"></script>
+	<script src="/js/demo/chart-area-demo.js"></script>
 
 </body>
 

@@ -28,7 +28,7 @@ public class BrandController {
 
 	@RequestMapping("/index")
 	public String welcome() {
-		return "welcome";
+		return "index";
 	}
 
 	@GetMapping("/new")

@@ -37,7 +37,7 @@ int aux = iR.findbyID_Inspection(inspection.getId_Inspection());
 	@Override
 	public Optional<Inspection> listId(int id_Inspection) {
 		// TODO Auto-generated method stub
-		return null;
+		return iR.findById(id_Inspection);
 	}
 
 	@Override

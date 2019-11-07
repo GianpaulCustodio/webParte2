@@ -25,22 +25,22 @@ public class Inspection {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Inspection;
 
-	@Column(name = "dateIns")
+	@Column(name = "d_Inspection")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date D_Inspection;
+	private Date d_Inspection;
 
 	@ManyToOne
-	@JoinColumn(name = "cMachine",nullable=false)
-	private Machine cMachine;
+	@JoinColumn(name = "id_Machine",nullable=false)
+	private Machine machine;
 	
-   // @ManyToOne
-   // @JoinColumn(name = "IdUser",nullable = false)
-	//private User id_User
+   @ManyToOne
+    @JoinColumn(name = "id_User",nullable = false)
+   private Users user;
 	
 	@NotEmpty(message = "Debe ingresar descripcion")
-	@Column(name = "tInspection",nullable = false,length = 50)
-	private String tInspection;
+	@Column(name = "t_Inspection",nullable = false,length = 50)
+	private String t_Inspection;
 
 	public int getId_Inspection() {
 		return id_Inspection;
@@ -51,36 +51,38 @@ public class Inspection {
 	}
 
 	public Date getD_Inspection() {
-		return D_Inspection;
+		return d_Inspection;
 	}
 
 	public void setD_Inspection(Date d_Inspection) {
-		D_Inspection = d_Inspection;
-	}
-	
-	public Machine getC_Machine() {
-		return cMachine;
+		this.d_Inspection = d_Inspection;
 	}
 
-	public void setC_Machine(Machine c_Machine) {
-		this.cMachine = c_Machine;
+	public Machine getMachine() {
+		return machine;
 	}
 
-	public Machine getcMachine() {
-		return cMachine;
+	public void setMachine(Machine machine) {
+		this.machine = machine;
 	}
 
-	public void setcMachine(Machine cMachine) {
-		this.cMachine = cMachine;
+	public Users getUser() {
+		return user;
 	}
 
-	public String gettInspection() {
-		return tInspection;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
-	public void settInspection(String tInspection) {
-		this.tInspection = tInspection;
+	public String getT_Inspection() {
+		return t_Inspection;
 	}
+
+	public void setT_Inspection(String t_Inspection) {
+		this.t_Inspection = t_Inspection;
+	}
+
+
 
 	
 }

@@ -29,8 +29,8 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	@Transactional
-	public void delete(int id_user) {
-		uR.deleteById(id_user);
+	public void delete(int id_User) {
+		uR.deleteById(id_User);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService {
 	}
 	
 	@Override
-	public Optional<Users> listId(int id_user) {
-		return uR.findById(id_user);
+	public Optional<Users> listId(int id_User) {
+		return uR.findById(id_User);
 	}
 }

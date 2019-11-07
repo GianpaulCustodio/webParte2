@@ -8,5 +8,5 @@ import pe.edu.upc.entity.Users;
 
 public interface IUserRepository extends JpaRepository<Users, Integer> {
 	@Query("select count(u.n_User) from Users u where u.n_User =:n_User")
-	public int findbyN_SparePart(@Param("n_User") String nSparepart);
+	public int findbyN_SparePart(@Param("n_User") String n_User);
 }

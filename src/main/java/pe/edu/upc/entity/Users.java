@@ -33,7 +33,7 @@ public class Users implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_user;
+	private int id_User;
 	
 	
 	
@@ -82,12 +82,22 @@ public class Users implements Serializable {
 	@JoinColumn(name = "user_id")
 	private List<Role> roles;
 
-	public int getId_user() {
-		return id_user;
+	
+
+	public int getId_User() {
+		return id_User;
 	}
 
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
+	public void setId_User(int id_User) {
+		this.id_User = id_User;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public String getN_FirstName() {

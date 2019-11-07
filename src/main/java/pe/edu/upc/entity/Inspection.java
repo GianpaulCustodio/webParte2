@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,6 +27,7 @@ public class Inspection {
 	@Column(name = "idInspection")
 	private int idInspection;
 
+	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "d_Inspection")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)

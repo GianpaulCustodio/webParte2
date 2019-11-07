@@ -127,25 +127,25 @@
 					<form th:action="@{/inspections/save}" th:object="${inspection}"
 						method="post">
 						<div class="form-group row">
-							<label for="n_Inspection" class="col-sm-2 col-form-label">Inspeccion</label>
+							<label for="tInspection" class="col-sm-2 col-form-label">Inspeccion</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{n_Inspection}"
+								<input autofocus type="text" th:field="*{t_Inspection}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('n_Inspection')}"
-									th:errors="*{n_Inspection}"></small>
+									th:if="${#fields.hasErrors('t_Inspection')}"
+									th:errors="*{t_Inspection}"></small>
 							</div>
 						</div>
 						
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Id</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{id_Inspection}" class="form-control"
+								<input type="text" th:field="*{id_inspection}" class="form-control"
 									readonly th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('id_Inspection')}"
-									th:errors="*{id_Inspection}"></small>
+									th:if="${#fields.hasErrors('id_inspection')}"
+									th:errors="*{id_inspection}"></small>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -164,7 +164,7 @@
 								<select class="custom-select custom-select-sm"
 									th:field="*{machine}">
 									<option th:each="machine : ${listMachines}"
-										th:value="${machine.id_Machine}" th:utext="${machine.n_Machine}" />
+										th:value="${machine.id_Machine}" th:utext="${machine.cMachine}" />
 								</select>
 							</div>
 						</div>
@@ -175,7 +175,7 @@
 								<select class="custom-select custom-select-sm"
 									th:field="*{user}">
 									<option th:each="user : ${listUsers}"
-										th:value="${user.id_User}" th:utext="${user.n_User}" />
+										th:value="${user.id_User}" th:utext="${user.nUser}" />
 								</select>
 							</div>
 						</div>

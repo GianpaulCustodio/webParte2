@@ -21,7 +21,7 @@ public class InspectionServiceImpl implements IInspectionService {
 	
 	@Override
 	public Integer insert(Inspection inspection) {
-int aux = iR.findbyID_Inspection(inspection.getId_Inspection());
+int aux = iR.findbyID_Inspection(inspection.getD_Inspection());
 		if(aux == 0) {
 			iR.save(inspection);
 		}

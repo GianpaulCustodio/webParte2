@@ -150,16 +150,16 @@
 								</thead>
 								<tbody>
 									<tr align="center" th:each="s: ${listInspections}">
-										<td th:text="${s.id_Inspection}"></td>
-										<td th:text="${s.t_Inspection}"></td>
+										<td th:text="${s.idInspection}"></td>
+										<td th:text="${s.tInspection}"></td>
 										<td th:text="${#dates.format(s.d_Inspection,'dd/MM/yyyy')}"></td>
-										<td th:text="${s.machine.n_Machine}"></td>
-										<td th:text="${s.user.n_User}"></td>
+										<td th:text="${s.machine.cMachine}"></td>
+										<td th:text="${s.user.nUser}"></td>
 
 										<td><a
-											th:href="@{/inspections/delete?id_Inspection=}+${s.id_Inspection}"
+											th:href="@{/inspections/delete?id_Inspection=}+${s.idInspection}"
 											class="btn btn-secondary">Eliminar</a></td>
-										<td> <a th:href="@{'/inspections/update/' + ${s.id_Inspection}}" 
+										<td> <a th:href="@{'/inspections/update/' + ${s.idInspection}}" 
 									class="btn btn-secondary">Modificar</a></td>
 									</tr>
 

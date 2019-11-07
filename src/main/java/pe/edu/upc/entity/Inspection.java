@@ -23,7 +23,8 @@ public class Inspection {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_Inspection;
+	@Column(name = "id_inspection")
+	private int id_inspection;
 
 	@Column(name = "d_Inspection")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -39,15 +40,15 @@ public class Inspection {
    private Users user;
 	
 	@NotEmpty(message = "Debe ingresar descripcion")
-	@Column(name = "t_Inspection",nullable = false,length = 50)
-	private String t_Inspection;
+	@Column(name = "tInspection",nullable = false,length = 50)
+	private String tInspection;
 
 	public int getId_Inspection() {
-		return id_Inspection;
+		return id_inspection;
 	}
 
 	public void setId_Inspection(int id_Inspection) {
-		this.id_Inspection = id_Inspection;
+		this.id_inspection = id_Inspection;
 	}
 
 	public Date getD_Inspection() {
@@ -75,11 +76,11 @@ public class Inspection {
 	}
 
 	public String getT_Inspection() {
-		return t_Inspection;
+		return tInspection;
 	}
 
 	public void setT_Inspection(String t_Inspection) {
-		this.t_Inspection = t_Inspection;
+		this.tInspection = t_Inspection;
 	}
 
 

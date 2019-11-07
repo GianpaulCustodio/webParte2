@@ -3,6 +3,8 @@ package pe.edu.upc.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -20,10 +22,11 @@ public class InspectionServiceImpl implements IInspectionService {
 	
 	
 	@Override
-	public Integer insert(Inspection inspection) {
-		int aux = 0;
+	@Transactional
+	public void insert(Inspection inspection) {
+		
 			iR.save(inspection);
-		return aux;
+		
 	}
 
 	@Override

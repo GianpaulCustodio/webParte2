@@ -7,7 +7,9 @@ import java.util.Optional;
 import pe.edu.upc.entity.Inspection;
 
 public interface IInspectionService {
-	public Integer insert(Inspection inspection);
+	
+	
+	public void insert(Inspection inspection);
 
 	public List<Inspection> list();
 

@@ -42,23 +42,15 @@ public class InspectionController {
 	}
 
 	@PostMapping("/save")
-	public String saveMachine(@Valid Inspection inspection, BindingResult result, Model model, SessionStatus status)
+	public String saveInspection(@Valid Inspection inspection, BindingResult result, Model model, SessionStatus status)
 			throws Exception {
 		if (result.hasErrors()) {
 			model.addAttribute("listMachines", mService.list());
 			model.addAttribute("listUsers", uService.list());
 			return "inspection/inspection";
 		} else {
-			int rpta = iService.insert(inspection);
-			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
-				model.addAttribute("listMachines", mService.list());
-				model.addAttribute("listUsers", uService.list());
-				return "/inspection/inspection";
-			} else {
-				model.addAttribute("mensaje", "Se guardó correctamente");
-				status.setComplete();
-			}
+			iService.insert(inspection);
+			
 		}
 		model.addAttribute("listInspections",iService.list());
 
@@ -84,7 +76,7 @@ public class InspectionController {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/inspection/listInspections";
 		} else {
-			model.addAttribute("inspections", inspection);
+			model.addAttribute("inspection", inspection);
 			model.addAttribute("listMachines", mService.list());
 			model.addAttribute("listUsers", uService.list());
 			return "/inspection/inspection";

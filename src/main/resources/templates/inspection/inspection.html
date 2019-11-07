@@ -118,10 +118,7 @@
 
 					<hr class="sidebar-divider">
 					<div th:object="${inspection}" th:remove="tag">
-						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
-							role="alert">
-							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-						</ul>
+						
 					</div>
 
 					<form th:action="@{/inspections/save}" th:object="${inspection}"

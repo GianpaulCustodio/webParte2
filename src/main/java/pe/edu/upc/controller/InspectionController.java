@@ -23,7 +23,7 @@ import pe.edu.upc.service.IMachineService;
 import pe.edu.upc.service.IUserService;
 
 @Controller
-@RequestMapping("/inspection")
+@RequestMapping("/inspections")
 public class InspectionController {
 	
 	@Autowired

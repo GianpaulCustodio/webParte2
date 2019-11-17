@@ -16,7 +16,7 @@ public class Brand {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Brand;
 	
-	@NotEmpty(message = "Insert name of brand")
+	@NotEmpty(message = "Inserte el nombre de la marca")
 	@Column(name = "n_Brand", nullable=false, length=50)
 	private String n_Brand;
 

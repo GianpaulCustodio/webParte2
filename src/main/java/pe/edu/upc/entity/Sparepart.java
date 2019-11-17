@@ -20,7 +20,7 @@ public class Sparepart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Sparepart;
 
-	@NotEmpty(message = "Ingrese su nombre del producto*")
+	@NotEmpty(message = "Ingrese su nombre del producto")
 	@Column(name = "nSparepart", nullable = false, length = 90)
 	private String nSparepart;
 

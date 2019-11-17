@@ -16,7 +16,7 @@ public class Areamachine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_Areamachine;
 	
-	@NotEmpty(message = "Insert name of Areamachine")
+	@NotEmpty(message = "Inserte el nombre del área de la máquina")
 	@Column(name = "n_Areamachine", nullable=false, length=50)
 	private String n_Areamachine;
 

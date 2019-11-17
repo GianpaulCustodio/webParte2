@@ -23,7 +23,7 @@ public class Role implements Serializable {
 	private int id_Rol;
 	
 	
-	@NotEmpty(message = "Insert name of brand")
+	@NotEmpty(message = "Inserte el nombre del rol")
 	@Column(name = "n_Rol", nullable=false, length=50)
 	private String n_Rol;
 

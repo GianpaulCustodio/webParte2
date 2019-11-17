@@ -87,7 +87,7 @@ public class Inspection {
 	public void settInspection(String tInspection) {
 		this.tInspection = tInspection;
 	}
-
-
+	
+	
 	
 }

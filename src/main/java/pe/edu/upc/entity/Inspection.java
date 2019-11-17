@@ -39,9 +39,9 @@ public class Inspection {
 	@JoinColumn(name = "id_Machine",nullable=false)
 	private Machine machine;
 	
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "id_User",nullable = false)
-   private Users user;
+    private Users user;
 	
 	@NotEmpty(message = "Debe ingresar descripcion")
 	@Column(name = "tInspection",nullable = false,length = 50)
@@ -87,9 +87,6 @@ public class Inspection {
 	public void settInspection(String tInspection) {
 		this.tInspection = tInspection;
 	}
-
-	
-
 
 
 	

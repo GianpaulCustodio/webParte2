@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,6 +29,7 @@ public class Machine {
 	@Column(name = "cMachine", nullable = false, length = 90)
 	private String cMachine;
 
+	@Past(message = "La fecha no puede ser futura")
 	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "d_Machine")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

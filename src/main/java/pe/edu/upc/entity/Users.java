@@ -2,7 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -42,7 +43,7 @@ public class Users implements Serializable {
 	@Column(name = "nlastName", nullable = false, length = 70)
 	private String nlastName;
 
-	@Size(min = 8, max = 8)
+	@Size(min = 8, max = 8, message = "el DNI debe tener 8 caracteres")
 	@NotEmpty(message = "Ingrese DNI")
 	@Column(name = "d_user", nullable = false, length = 8)
 	private String d_user;
@@ -51,6 +52,7 @@ public class Users implements Serializable {
 	@Column(length = 30, unique = true)
 	private String nUser;
 	
+	@Past(message = "La fecha no puede ser futura")
 	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "dateOf")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -76,9 +78,6 @@ public class Users implements Serializable {
 	public void setId_User(int id_User) {
 		this.id_User = id_User;
 	}
-
-
-	
 
 
 	public String getnFirstname() {

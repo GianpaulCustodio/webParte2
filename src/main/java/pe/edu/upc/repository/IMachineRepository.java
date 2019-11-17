@@ -10,7 +10,11 @@ import pe.edu.upc.entity.Machine;
 
 @Repository
 public interface IMachineRepository extends JpaRepository<Machine, Integer>{
+	
 	@Query("select count(s.cMachine) from Machine s where s.cMachine =:cMachine")
 	public int findbyCMachine(@Param("cMachine") String cMachine);
+	
+	
+	
 
 }

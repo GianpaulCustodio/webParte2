@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -28,6 +29,7 @@ public class Maintenance {
 	@Column(name = "tMaintenance", nullable = false, length = 90)
 	private String tMaintenance;
 
+	@Past(message = "La fecha no puede ser futura")
 	@NotNull(message = "La fecha es obligatoria")
 	@Column(name = "d_Maintenance")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -37,6 +39,7 @@ public class Maintenance {
 	@ManyToOne
 	@JoinColumn(name = "id_User", nullable = false)
 	private Users user;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "idInspection", nullable = false)

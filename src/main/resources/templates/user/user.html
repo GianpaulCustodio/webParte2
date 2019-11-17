@@ -36,7 +36,7 @@
 										autofocus="autofocus"><small
 										class="form-text text-danger"
 										th:if="${#fields.hasErrors('nFirstname')}"
-										th:errors="*{nFirstname}"></small> <label>First name</label>
+										th:errors="*{nFirstname}"></small> <label>Nombre</label>
 								</div>
 
 							</div>
@@ -46,8 +46,7 @@
 										required="required" autofocus="autofocus"><small
 										class="form-text text-danger"
 										th:if="${#fields.hasErrors('nlastName')}"
-										th:errors="*{nlastName}"></small> <label >Last
-										name</label>
+										th:errors="*{nlastName}"></small> <label >Apellido</label>
 								</div>
 							</div>
 
@@ -72,7 +71,7 @@
 										th:errorclass="'form-control alert-danger'" /> <small
 										class="form-text text-danger"
 										th:if="${#fields.hasErrors('dateOf')}" th:errors="*{dateOf}"></small>
-									<label>Fecha de nacimiento</label>
+									<label>Fecha de Nacimiento</label>
 								</div>
 							</div>
 						</div>

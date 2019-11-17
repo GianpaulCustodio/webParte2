@@ -28,6 +28,7 @@ public class MachineServiceImpl implements IMachineService {
 		return rpta;
 	}
 
+	
 	@Override
 	@Transactional
 	public void delete(int id_Machine) {

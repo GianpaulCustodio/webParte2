@@ -43,4 +43,9 @@ public class SparePartServiceImpl implements ISparePartService {
 	public Optional<Sparepart> listId(int id_Sparepart) {
 		return sP.findById(id_Sparepart);
 	}
+
+	@Override
+	public List<String[]> Reportsp() {
+		return sP.Reportsp();
+	}
 }

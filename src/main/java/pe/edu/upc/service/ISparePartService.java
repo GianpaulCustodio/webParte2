@@ -13,4 +13,5 @@ public interface ISparePartService {
 
 	List<Sparepart> list();
 	Optional<Sparepart> listId(int id_Sparepart);
+	List<String[]>Reportsp();
 }

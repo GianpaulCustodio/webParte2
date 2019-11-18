@@ -99,4 +99,9 @@ public class SparePartController {
 		}
 		return "/sparepart/listSparePart";
 	}
+	@GetMapping("/reportsp")
+	public String Reportsp(Map<String, Object> model) {
+		model.put("listReportsp", sService.Reportsp());
+		return "/report/reportsp";
+	}
 }

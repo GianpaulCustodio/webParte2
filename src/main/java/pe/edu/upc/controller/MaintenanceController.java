@@ -99,7 +99,7 @@ public class MaintenanceController {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar el maintenance");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 		}
 		model.put("listMaintenances", mService.list());
 		return "/maintenance/listMaintenance";

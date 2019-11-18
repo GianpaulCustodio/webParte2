@@ -88,12 +88,13 @@ public class InspectionController {
 		try {
 			if (id != null && id > 0) {
 				iService.delete(id);
+				
 				model.put("mensaje", "Se eliminó correctamente");
 
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar el machine");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 		}
 		model.put("listInspections", iService.list());
 		return "/inspection/listInspection";

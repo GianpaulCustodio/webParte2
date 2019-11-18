@@ -53,7 +53,7 @@ public class AreamachineController {
 			}
 			model.addAttribute("listAreamachines", amService.list());
 		}
-		return "/areamachine/listAreamachines";
+		return "/areamachine/areamachine";
 	}
 
 	@GetMapping("/list")
@@ -86,11 +86,12 @@ public class AreamachineController {
 			if (id != null && id > 0) {
 
 				amService.delete(id);
+				model.put("mensaje", "Se elimino correctamente");
 				model.put("listAreamachines", amService.list());
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 			model.put("listAreamachines", amService.list());
 
 		}

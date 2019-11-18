@@ -81,18 +81,18 @@ public class RoleController {
 	}
 
 	@RequestMapping("/delete")
-	public String deleteRole(Map<String, Object> model, @RequestParam(value = "id") Integer id) {
+	public String deleteRole(Map<String, Object> model, @RequestParam(value = "id") Integer id ) {
 		try {
 			if (id != null && id > 0) {
 
 				rService.delete(id);
+				model.put("mensaje", "Se eliminó correctamente");
 				model.put("listRoles", rService.list());
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 			model.put("listRoles", rService.list());
-
 		}
 		return "/role/listRoles";
 	}

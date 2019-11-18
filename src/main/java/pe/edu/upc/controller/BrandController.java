@@ -83,16 +83,18 @@ public class BrandController {
 	}
 
 	@RequestMapping("/delete")
-	public String deleteBrand(Map<String, Object> model, @RequestParam(value = "id_Brand") Integer id) {
+	public String deleteBrand(Map<String, Object> model, @RequestParam(value = "id_Brand") Integer id,Model modelval) {
 		try {
 			if (id != null && id > 0) {
 
 				bService.delete(id);
+				model.put("mensaje", "Se elimino correctamente");
+				//modelval.addAttribute("mensaje", "Se elimino correctamente");
 				model.put("listBrands", bService.list());
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 			model.put("listBrands", bService.list());
 
 		}

@@ -89,11 +89,12 @@ public class SparePartController {
 			if (id != null && id > 0) {
 
 				sService.delete(id);
+				model.put("mensaje", "Se eliminó correctamente");
 				model.put("listSpareParts", sService.list());
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 			model.put("listSpareParts", sService.list());
 
 		}

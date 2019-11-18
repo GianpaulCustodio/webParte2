@@ -104,7 +104,7 @@ public class MachineController {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			model.put("mensaje", "No se puede eliminar el machine");
+			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
 		}
 		model.put("listMachines", mService.list());
 		return "/machine/listMachine";

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.entity.Users;
 @Repository
 public interface IUserRepository extends JpaRepository<Users, Integer> {
-	@Query("select count(u.nUser) from Users u where u.nUser =:nUser")
-	public int findbyN_User(@Param("nUser") String nUser);
+	@Query("select count(u.d_user) from Users u where u.d_user =:d_user")
+	public int findbyN_User(@Param("d_user") String d_user);
 }

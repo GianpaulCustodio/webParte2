@@ -25,7 +25,7 @@ public class UsersController {
 	private IUserService uService;
 	@Autowired
 	private IRoleService rService;
-
+	private int valid=0;
 	@GetMapping("/new")
 	public String newSparePart(Model model) {
 		model.addAttribute("users", new Users());
@@ -40,11 +40,12 @@ public class UsersController {
 			model.addAttribute("listRoles", rService.list());
 			return "user/user";
 		} else {
-			int rpta = uService.insert(user);
+			int rpta = uService.insert(user, valid);
+			valid=0;
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya existe");
 				model.addAttribute("listRoles", rService.list());
-				return "/user/user";
+				return "/user/modifuser";
 			} else {
 				model.addAttribute("mensaje", "Se guardó correctamente");
 				status.setComplete();
@@ -74,6 +75,7 @@ public class UsersController {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/user/listUsers";
 		} else {
+			valid=1;
 			model.addAttribute("users", user);
 			model.addAttribute("listRoles", rService.list());
 			return "/user/modifuser";

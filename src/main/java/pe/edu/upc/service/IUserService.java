@@ -6,7 +6,7 @@ import java.util.Optional;
 import pe.edu.upc.entity.Users;
 
 public interface IUserService {
-	public Integer insert(Users user);
+	public Integer insert(Users user, int valid);
 
 	public void delete(int id_User);
 

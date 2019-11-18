@@ -142,6 +142,7 @@
 										<th scope="col">Id</th>
 										<th scope="col">Nombre</th>
 										<th scope="col">Apellido</th>
+										<th scope="col">DNI</th>
 										<th scope="col">Usuario</th>
 										<th scope="col">F. Nac.</th>
 										<th scope="col">Estado.</th>
@@ -155,6 +156,7 @@
 										<td th:text="${u.id_User}"></td>
 										<td th:text="${u.nFirstname}"></td>
 										<td th:text="${u.nlastName}"></td>
+										<td th:text="${u.d_user}"></td>
 										<td th:text="${u.nUser}"></td>
 										<td th:text="${#dates.format(u.dateOf,'dd/MM/yyyy')}"></td>
 										<td th:text="${u.f_Estado}"></td>

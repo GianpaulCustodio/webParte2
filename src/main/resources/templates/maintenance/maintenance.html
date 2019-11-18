@@ -129,9 +129,11 @@
 								<input autofocus type="text" th:field="*{tMaintenance}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
+									
 									class="form-text text-danger"
 									th:if="${#fields.hasErrors('tMaintenance')}"
 									th:errors="*{tMaintenance}"></small>
+									<div class="card-footer small text-muted">La descripción no puede superar los 50 caracteres </div>
 							</div>
 						</div>
 						

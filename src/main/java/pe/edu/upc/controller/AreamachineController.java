@@ -45,15 +45,15 @@ public class AreamachineController {
 		} else {
 			int rpta = amService.insert(areamachine);
 			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("mensaje", "Ya existe un área con ese nombre.");
 				return "/areamachine/areamachine";
 			} else {
-				model.addAttribute("mensaje", "Se guardo correctamente");
+				model.addAttribute("mensaje", "El área se guardo correctamente");
 				status.setComplete();
 			}
 			model.addAttribute("listAreamachines", amService.list());
 		}
-		return "/areamachine/areamachine";
+		return "/areamachine/listAreamachines";
 	}
 
 	@GetMapping("/list")
@@ -86,7 +86,7 @@ public class AreamachineController {
 			if (id != null && id > 0) {
 
 				amService.delete(id);
-				model.put("mensaje", "Se elimino correctamente");
+				model.put("mensaje", "El área se elimino correctamente");
 				model.put("listAreamachines", amService.list());
 			}
 		} catch (Exception e) {

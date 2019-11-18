@@ -53,12 +53,12 @@ public class MachineController {
 		} else {
 			int rpta = mService.insert(machine);
 			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("mensaje", "Ya existe una máquina con ese código.");
 				model.addAttribute("listBrands", bService.list());
 				model.addAttribute("listAreamachines", amService.list());
 				return "/machine/machine";
 			} else {
-				model.addAttribute("mensaje", "Se guardó correctamente");
+				model.addAttribute("mensaje", "La máquina se guardó correctamente.");
 				status.setComplete();
 			}
 		}
@@ -84,7 +84,7 @@ public class MachineController {
 		Optional<Machine> machine = mService.listId(id);
 
 		if (machine == null) {
-			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
+			objRedir.addFlashAttribute("mensaje", "Ocurrio un error.");
 			return "redirect:/machine/listMachines";
 		} else {
 			model.addAttribute("machine", machine);
@@ -99,7 +99,7 @@ public class MachineController {
 		try {
 			if (id != null && id > 0) {
 				mService.delete(id);
-				model.put("mensaje", "Se eliminó correctamente");
+				model.put("mensaje", "La máquina se eliminó correctamente.");
 
 			}
 		} catch (Exception e) {

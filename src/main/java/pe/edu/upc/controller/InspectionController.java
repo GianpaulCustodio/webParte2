@@ -49,8 +49,8 @@ public class InspectionController {
 			model.addAttribute("listUsers", uService.list());
 			return "inspection/inspection";
 		} else {
-			iService.insert(inspection);
-			
+			iService.insert(inspection);	
+			model.addAttribute("mensaje", "La inspección se guardo correctamente.");
 		}
 		model.addAttribute("listInspections",iService.list());
 
@@ -89,7 +89,7 @@ public class InspectionController {
 			if (id != null && id > 0) {
 				iService.delete(id);
 				
-				model.put("mensaje", "Se eliminó correctamente");
+				model.put("mensaje", "La inspección se eliminó correctamente.");
 
 			}
 		} catch (Exception e) {

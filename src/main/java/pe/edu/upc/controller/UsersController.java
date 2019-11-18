@@ -43,11 +43,11 @@ public class UsersController {
 			int rpta = uService.insert(user, valid);
 			valid=0;
 			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("mensaje", "Ya existe un usuario con ese DNI.");
 				model.addAttribute("listRoles", rService.list());
 				return "/user/modifuser";
 			} else {
-				model.addAttribute("mensaje", "Se guardó correctamente");
+				model.addAttribute("mensaje", "El usuario se guardó correctamente.");
 				status.setComplete();
 			}
 		}
@@ -79,6 +79,7 @@ public class UsersController {
 		} else {
 			user.get().setF_Estado(!(user.get().getF_Estado()));
 			uService.status_change(user.get());
+			model.addAttribute("mensaje", "Se cambio el estado del usuario correctamente.");
 			model.addAttribute("listUsers", uService.list());
 			return "/user/listUser";
 		}

@@ -45,15 +45,15 @@ public class BrandController {
 		} else {
 			int rpta = bService.insert(brand);
 			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("mensaje", "Ya existe una marca con ese nombre.");
 				return "/brand/brand";
 			} else {
-				model.addAttribute("mensaje", "Se guardo correctamente");
+				model.addAttribute("mensaje", "La marca se guardo correctamente.");
 				status.setComplete();
 			}
 			model.addAttribute("listBrands", bService.list());
 		}
-		return "/brand/brand";
+		return "/brand/listBrands";
 	}
 	
 	
@@ -88,8 +88,7 @@ public class BrandController {
 			if (id != null && id > 0) {
 
 				bService.delete(id);
-				model.put("mensaje", "Se elimino correctamente");
-				//modelval.addAttribute("mensaje", "Se elimino correctamente");
+				model.put("mensaje", "La marca se elimino correctamente.");
 				model.put("listBrands", bService.list());
 			}
 		} catch (Exception e) {

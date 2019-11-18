@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import pe.edu.upc.entity.Inspection;
 import pe.edu.upc.entity.Maintenance;
 
 
@@ -24,4 +26,7 @@ public interface IMaintenanceRepository extends JpaRepository<Maintenance, Integ
 			"				   ) AS T2\r\n" + 
 			"			 )",nativeQuery=true)
 	List<String[]>Reportmes();
+	
+	@Query("select count(m.inspection) from Maintenance m where m.inspection=:inspection")
+	public int findByid_Inspection(@Param("inspection") Inspection inspection);
 }

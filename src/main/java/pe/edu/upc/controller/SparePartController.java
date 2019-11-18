@@ -45,11 +45,11 @@ public class SparePartController {
 		} else {
 			int rpta = sService.insert(sparepart);
 			if (rpta > 0) {
-				model.addAttribute("mensaje", "Ya existe");
+				model.addAttribute("mensaje", "Ya existe un repuesto con ese nombre.");
 				model.addAttribute("listBrands", bService.list());
 				return "/sparepart/sparepart";
 			} else {
-				model.addAttribute("mensaje", "Se guardó correctamente");
+				model.addAttribute("mensaje", "El repuesto se guardó correctamente.");
 				status.setComplete();
 			}
 		}
@@ -89,7 +89,7 @@ public class SparePartController {
 			if (id != null && id > 0) {
 
 				sService.delete(id);
-				model.put("mensaje", "Se eliminó correctamente");
+				model.put("mensaje", "El repuesto se eliminó correctamente.");
 				model.put("listSpareParts", sService.list());
 			}
 		} catch (Exception e) {

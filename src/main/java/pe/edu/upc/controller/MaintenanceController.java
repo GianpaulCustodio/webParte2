@@ -54,8 +54,17 @@ public class MaintenanceController {
 			model.addAttribute("listSpareparts", sService.list());
 			return "maintenance/maintenance";
 		} else {
-			mService.insert(maintenance);
-			
+			int rpta = mService.insert(maintenance);
+			if (rpta > 0) {
+				model.addAttribute("mensaje", "Ya se realizo mantenimiento a esa inspección.");
+				model.addAttribute("listInspections", iService.list());
+				model.addAttribute("listUsers", uService.list());
+				model.addAttribute("listSpareparts", sService.list());
+				return "/maintenance/maintenance";
+			} else {
+				model.addAttribute("mensaje", "El mantenimiento se guardó correctamente.");
+				status.setComplete();
+			}
 		}
 		model.addAttribute("listMaintenances",mService.list());
 
@@ -78,7 +87,7 @@ public class MaintenanceController {
 	public String updateMaintenance(@PathVariable int id, Model model, RedirectAttributes objRedir) {
 		Optional<Maintenance> maintenance = mService.listId(id);
 		if (maintenance == null) {
-			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
+			objRedir.addFlashAttribute("mensaje", "Ocurrio un error.");
 			return "redirect:/maintenance/listMaintenances";
 		} else {
 			model.addAttribute("maintenance", maintenance);
@@ -94,7 +103,7 @@ public class MaintenanceController {
 		try {
 			if (id != null && id > 0) {
 				mService.delete(id);
-				model.put("mensaje", "Se eliminó correctamente");
+				model.put("mensaje", "El mantenimiento se eliminó correctamente.");
 
 			}
 		} catch (Exception e) {

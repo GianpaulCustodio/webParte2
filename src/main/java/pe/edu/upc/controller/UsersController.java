@@ -67,20 +67,7 @@ public class UsersController {
 		return "/user/listUser";
 	}
 
-	@RequestMapping("/update/{id}")
-	public String updateSparePart(@PathVariable int id, Model model, RedirectAttributes objRedir) {
-		Optional<Users> user = uService.listId(id);
-
-		if (user == null) {
-			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
-			return "redirect:/user/listUsers";
-		} else {
-			valid=1;
-			model.addAttribute("users", user);
-			model.addAttribute("listRoles", rService.list());
-			return "/user/modifuser";
-		}
-	}
+	
 	@RequestMapping("/estado/{id}")
 	public String EstadoSparePart(@PathVariable int id, Model model, RedirectAttributes objRedir) {
 		Optional<Users> user = uService.listId(id);
@@ -94,6 +81,20 @@ public class UsersController {
 			uService.status_change(user.get());
 			model.addAttribute("listUsers", uService.list());
 			return "/user/listUser";
+		}
+	}
+	@RequestMapping("/update/{id}")
+	public String updateSparePart(@PathVariable int id, Model model, RedirectAttributes objRedir) {
+		Optional<Users> user = uService.listId(id);
+
+		if (user == null) {
+			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
+			return "redirect:/user/listUsers";
+		} else {
+			valid=1;
+			model.addAttribute("users", user);
+			model.addAttribute("listRoles", rService.list());
+			return "/user/modifuser";
 		}
 	}
 	

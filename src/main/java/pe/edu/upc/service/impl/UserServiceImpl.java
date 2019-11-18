@@ -17,6 +17,14 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private IUserRepository uR;
 
+	
+
+	@Override
+	@Transactional
+	public void status_change(Users user) {
+
+		uR.save(user);
+	}
 	@Override
 	@Transactional
 	public Integer insert(Users user, int valid) {
@@ -35,13 +43,6 @@ public class UserServiceImpl implements IUserService {
 			return rpta;
 		}
 		return rpta;
-	}
-
-	@Override
-	@Transactional
-	public void status_change(Users user) {
-
-		uR.save(user);
 	}
 
 	@Override

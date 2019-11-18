@@ -98,4 +98,9 @@ public class BrandController {
 		}
 		return "/brand/listBrands";
 	}
+	@GetMapping("/reportb")
+	public String Reportsp(Map<String, Object> model) {
+		model.put("listReportb", bService.Reportb());
+		return "/report/reportb";
+	}
 }

@@ -109,4 +109,9 @@ public class MachineController {
 		model.put("listMachines", mService.list());
 		return "/machine/listMachine";
 	}
+	@GetMapping("/reportm")
+	public String Reportsp(Map<String, Object> model) {
+		model.put("listReportm", mService.Reportm());
+		return "/report/reportm";
+	}
 }

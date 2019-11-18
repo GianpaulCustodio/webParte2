@@ -41,5 +41,10 @@ public class AreamachineServiceImpl implements IAreamachineService {
 		amR.deleteById(id_Areamachine);		
 	}
 
+	@Override
+	public List<String[]> Reporta() {
+		return amR.Reporta();
+	}
+
 
 }

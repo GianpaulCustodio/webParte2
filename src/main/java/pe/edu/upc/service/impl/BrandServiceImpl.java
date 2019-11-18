@@ -41,5 +41,10 @@ public class BrandServiceImpl implements IBrandService {
 		bR.deleteById(id_Brand);		
 	}
 
+	@Override
+	public List<String[]> Reportb() {
+		return bR.Reportb();
+	}
+
 
 }

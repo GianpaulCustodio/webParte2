@@ -13,4 +13,5 @@ public interface IAreamachineService {
 	Optional<Areamachine> listId(int id_Areamachine);
 
 	public void delete(int id_Areamachine);
+	List<String[]>Reporta();
 }

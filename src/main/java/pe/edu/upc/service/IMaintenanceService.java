@@ -12,4 +12,5 @@ public interface IMaintenanceService {
 
 	List<Maintenance> list();
 	Optional<Maintenance> listId(int idMaintenance);
+	List<String[]>Reportmes();
 }

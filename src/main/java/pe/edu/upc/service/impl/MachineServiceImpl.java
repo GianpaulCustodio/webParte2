@@ -48,4 +48,10 @@ public class MachineServiceImpl implements IMachineService {
 		return sP.findById(id_Machine);
 	}
 
+
+	@Override
+	public List<String[]> Reportm() {
+		return sP.Reportm();
+	}
+
 }

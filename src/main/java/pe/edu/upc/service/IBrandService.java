@@ -14,4 +14,6 @@ public interface IBrandService {
 	Optional<Brand> listId(int id_Brand);
 
 	public void delete(int id_Brand);
+	
+	List<String[]>Reportb();
 }

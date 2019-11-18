@@ -84,7 +84,6 @@
 						class="dropdown-item" th:href="@{/inspections/list}" >Inspección</a> <a
 						class="dropdown-item" th:href="@{/maintenances/list}" >Mantenimiento</a>
 					<a class="dropdown-item"  th:href="@{/users/list}">Usuario</a>
-					<a class="dropdown-item"  th:href="@{/spareparts/reportsp}">Usuario</a>
 					<div class="dropdown-divider"></div>
 				</div></li>
 
@@ -129,9 +128,8 @@
 
 				<div class="card mb-3">
 					<div class="card-header">
-						<i class="fas fa-table"></i> Repuestos:
+						<i class="fas fa-table"></i> Area con más Incidencias:
 					</div>
-					<a th:href="@{/spareparts/new/}" class="btn btn-danger btn-xs">Nuevo</a>
 
 					<div class="card-body">
 
@@ -142,26 +140,15 @@
 									<tr>
 										<th scope="col">Id</th>
 										<th scope="col">Nombre</th>
-										<th scope="col">Precio</th>
-										<th scope="col">Marca</th>
-										<th scope="col">Operaciones</th>
-										<th scope="col">Operaciones</th>
+										<th scope="col">Cantidad</th>
 									</tr>
 								</thead>
 
 								<tbody>
-									<tr align="center" th:each="s: ${listSpareParts}">
-										<td th:text="${s.id_Sparepart}"></td>
-										<td th:text="${s.nSparepart}"></td>
-										<td th:text="${s.p_Sparepart}"></td>
-										<td th:text="${s.brand.n_Brand}"></td>
-
-										<td><a
-											th:href="@{/spareparts/delete?id_Sparepart=}+${s.id_Sparepart}"
-											class="btn btn-secondary">Eliminar</a></td>
-											
-										<td> <a th:href="@{'/spareparts/update/' + ${s.id_Sparepart}}" 
-									class="btn btn-secondary">Modificar</a></td>
+									<tr align="center" th:each="s: ${listReporta}">
+										<td th:text="${s[0]}"></td>
+										<td th:text="${s[1]}"></td>
+										<td th:text="${s[2]}"></td>
 									</tr>
 
 								</tbody>

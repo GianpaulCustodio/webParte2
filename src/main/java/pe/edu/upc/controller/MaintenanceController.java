@@ -104,5 +104,10 @@ public class MaintenanceController {
 		model.put("listMaintenances", mService.list());
 		return "/maintenance/listMaintenance";
 	}
+	@GetMapping("/reportmes")
+	public String Reportsp(Map<String, Object> model) {
+		model.put("listReportmes", mService.Reportmes());
+		return "/report/reportmes";
+	}
 }
 	

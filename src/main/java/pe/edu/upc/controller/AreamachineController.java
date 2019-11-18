@@ -96,4 +96,9 @@ public class AreamachineController {
 		}
 		return "/areamachine/listAreamachines";
 	}
+	@GetMapping("/reporta")
+	public String Reportsp(Map<String, Object> model) {
+		model.put("listReporta", amService.Reporta());
+		return "/report/reporta";
+	}
 }

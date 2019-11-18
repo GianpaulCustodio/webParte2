@@ -12,4 +12,5 @@ public interface IMachineService {
 
 	List<Machine> list();
 	Optional<Machine> listId(int id_Machine);
+	List<String[]>Reportm();
 }

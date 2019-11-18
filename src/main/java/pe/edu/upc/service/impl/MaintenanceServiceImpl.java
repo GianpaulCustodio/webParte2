@@ -39,6 +39,11 @@ public class MaintenanceServiceImpl implements IMaintenanceService {
 		return mR.findById(idMaintenance);
 	}
 
+	@Override
+	public List<String[]> Reportmes() {
+		return mR.Reportmes();
+	}
+
 
 
 }

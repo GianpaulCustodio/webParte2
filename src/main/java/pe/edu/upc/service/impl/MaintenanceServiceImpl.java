@@ -20,12 +20,24 @@ public class MaintenanceServiceImpl implements IMaintenanceService {
 
 	@Override
 	@Transactional
-	public Integer insert(Maintenance maintenance) {
-		int aux = mR.findByid_Inspection(maintenance.getInspection());
-		if (aux == 0) {
-			mR.save(maintenance);
+	public Integer insert(Maintenance maintenance, int valid) {
+		
+		int rpta = mR.findByid_Inspection(maintenance.getInspection());
+		if (valid == 0) {
+			if (rpta == 0) {
+				mR.save(maintenance);
+				return rpta;
+			}
 		}
-		return aux;
+		if(valid==1)
+		{
+			mR.save(maintenance);
+			rpta=0;
+			return rpta;
+		}
+		return rpta;
+		
+		
 	}
 
 	@Override

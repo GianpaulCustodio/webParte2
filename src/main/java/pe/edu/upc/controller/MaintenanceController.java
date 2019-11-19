@@ -36,6 +36,7 @@ public class MaintenanceController {
 	@Autowired
 	private IInspectionService iService;
 
+	int valid=0;
 	@GetMapping("/new")
 	public String newMaintenance(Model model) {
 		model.addAttribute("maintenance", new Maintenance());
@@ -54,7 +55,8 @@ public class MaintenanceController {
 			model.addAttribute("listSpareparts", sService.list());
 			return "maintenance/maintenance";
 		} else {
-			int rpta = mService.insert(maintenance);
+			int rpta = mService.insert(maintenance,valid);
+			valid=0;
 			if (rpta > 0) {
 				model.addAttribute("mensaje", "Ya se realizo mantenimiento a esa inspección.");
 				model.addAttribute("listInspections", iService.list());
@@ -71,22 +73,7 @@ public class MaintenanceController {
 		return "/maintenance/listMaintenance";
 	}
 
-	@PostMapping("/savem")
-	public String saveMaintenancem(@Valid Maintenance maintenance, BindingResult result, Model model, SessionStatus status)
-			throws Exception {
-		if (result.hasErrors()) {
-			model.addAttribute("listInspections", iService.list());
-			model.addAttribute("listUsers", uService.list());
-			model.addAttribute("listSpareparts", sService.list());
-			return "maintenance/maintenance";
-		} else {
-			mService.insert(maintenance);
-			model.addAttribute("mensaje", "El mantenimiento se guardó correctamente.");
-		}
-		model.addAttribute("listMaintenances",mService.list());
-
-		return "/maintenance/listMaintenance";
-	}
+	
 	
 	@GetMapping("/list")
 	public String listMaintenance(Model model) {
@@ -107,6 +94,7 @@ public class MaintenanceController {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error.");
 			return "redirect:/maintenance/listMaintenances";
 		} else {
+			valid=1;
 			model.addAttribute("maintenance", maintenance);
 			model.addAttribute("listSpareparts", sService.list());
 			model.addAttribute("listInspections", iService.list());

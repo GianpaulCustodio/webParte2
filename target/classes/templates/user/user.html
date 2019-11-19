@@ -56,7 +56,7 @@
 						<div class="form-row">
 							<div class="col-md-6">
 								<div class="form-label-group">
-									<input type="text" th:field="*{d_user}" class="form-control"
+									<input type="number" min="10000000" max="99999999" th:field="*{d_user}" class="form-control"
 										th:errorclass="'form-control alert-danger'" /> <small
 										class="form-text text-danger"
 										th:if="${#fields.hasErrors('d_user')}" th:errors="*{d_user}"></small>

@@ -8,7 +8,7 @@ import pe.edu.upc.entity.Sparepart;
 
 public interface ISparePartService {
 	public Integer insert(Sparepart sparepart);
-
+	public void insertm(Sparepart sparepart);
 	public void delete(int id_SparePart);
 
 	List<Sparepart> list();

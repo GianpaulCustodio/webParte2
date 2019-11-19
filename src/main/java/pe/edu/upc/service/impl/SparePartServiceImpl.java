@@ -48,4 +48,9 @@ public class SparePartServiceImpl implements ISparePartService {
 	public List<String[]> Reportsp() {
 		return sP.Reportsp();
 	}
+
+	@Override
+	public void insertm(Sparepart sparepart) {
+		sP.save(sparepart);
+	}
 }

@@ -57,6 +57,20 @@ public class SparePartController {
 
 		return "/sparepart/listSparePart";
 	}
+	@PostMapping("/savem")
+	public String saveSparePartm(@Valid Sparepart sparepart, BindingResult result, Model model, SessionStatus status)
+			throws Exception {
+		if (result.hasErrors()) {
+			model.addAttribute("listBrands", bService.list());
+			return "sparepart/sparepart";
+		} else {
+			sService.insertm(sparepart);	
+			model.addAttribute("mensaje", "El repuesto se guardo correctamente.");
+		}
+		model.addAttribute("listSpareParts", sService.list());
+
+		return "/sparepart/listSparePart";
+	}
 
 	@GetMapping("/list")
 	public String listSparePart(Model model) {
@@ -72,14 +86,13 @@ public class SparePartController {
 	@RequestMapping("/update/{id}")
 	public String updateSparePart(@PathVariable int id, Model model, RedirectAttributes objRedir) {
 		Optional<Sparepart> sparepart = sService.listId(id);
-
 		if (sparepart == null) {
 			objRedir.addFlashAttribute("mensaje", "Ocurrio un error");
 			return "redirect:/sparepart/listSparePart";
 		} else {
 			model.addAttribute("sparepart", sparepart);
 			model.addAttribute("listBrands", bService.list());
-			return "/sparepart/sparepart";
+			return "/sparepart/sparepartm";
 		}
 	}
 

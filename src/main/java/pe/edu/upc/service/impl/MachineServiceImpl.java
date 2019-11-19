@@ -54,4 +54,10 @@ public class MachineServiceImpl implements IMachineService {
 		return sP.Reportm();
 	}
 
+
+	@Override
+	public void insertm(Machine machine) {
+		sP.save(machine);
+	}
+
 }

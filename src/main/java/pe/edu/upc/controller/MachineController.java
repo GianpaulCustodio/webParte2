@@ -67,6 +67,22 @@ public class MachineController {
 		return "/machine/listMachine";
 	}
 
+	@PostMapping("/savem")
+	public String saveMachinem(@Valid Machine machine, BindingResult result, Model model, SessionStatus status)
+			throws Exception {
+		if (result.hasErrors()) {
+			model.addAttribute("listBrands", bService.list());
+			model.addAttribute("listAreamachines", amService.list());
+			return "machine/machine";
+		} else {
+			mService.insertm(machine);	
+			model.addAttribute("mensaje", "La máquina se guardo correctamente.");
+		}
+		model.addAttribute("listMachines", mService.list());
+
+		return "/machine/listMachine";
+	}
+	
 	@GetMapping("/list")
 	public String listMachine(Model model) {
 		try {
@@ -90,7 +106,7 @@ public class MachineController {
 			model.addAttribute("machine", machine);
 			model.addAttribute("listBrands", bService.list());
 			model.addAttribute("listAreamachines", amService.list());
-			return "/machine/machine";
+			return "/machine/machinem";
 		}
 	}
 	
@@ -105,6 +121,7 @@ public class MachineController {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			model.put("mensaje", "Necesita eliminar el registro dependiente primero.");
+			model.put("listMachines", mService.list());
 		}
 		model.put("listMachines", mService.list());
 		return "/machine/listMachine";

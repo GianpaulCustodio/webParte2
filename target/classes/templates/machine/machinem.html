@@ -77,7 +77,7 @@
 			</a>
 
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-							<a class="dropdown-item"  th:href="@{/areamachines/list}" >Área</a> <a
+					<a class="dropdown-item"  th:href="@{/areamachines/list}" >Área</a> <a
 						class="dropdown-item" th:href="@{/brands/list}" >Marca</a> <a
 						class="dropdown-item" th:href="@{/spareparts/list}">Repuesto</a> <a
 						class="dropdown-item" th:href="@{/machines/list}" >Máquina</a> <a
@@ -114,65 +114,68 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-4 text-gray-800">Inspección</h1>
+					<h1 class="h3 mb-4 text-gray-800">Maquina</h1>
 
 					<hr class="sidebar-divider">
-					<div th:object="${inspection}" th:remove="tag">
-						
+					<div th:object="${machine}" th:remove="tag">
+						<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
+							role="alert">
+							<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+						</ul>
 					</div>
 
-					<form th:action="@{/inspections/save}" th:object="${inspection}"
+					<form th:action="@{/machines/savem}" th:object="${machine}"
 						method="post">
 						<div class="form-group row">
-							<label for="tInspection" class="col-sm-2 col-form-label">Observaciones</label>
+							<label for="cMachine" class="col-sm-2 col-form-label">Maquina</label>
 							<div class="col-sm-6">
-								<input autofocus type="text" th:field="*{tInspection}"
+								<input autofocus type="text" th:field="*{cMachine}"
 									class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('tInspection')}"
-									th:errors="*{tInspection}"></small>
+									th:if="${#fields.hasErrors('cMachine')}"
+									th:errors="*{cMachine}"></small>
 							</div>
 						</div>
 						
 						<div class="form-group row">
 							<label class="col-sm-2 col-form-label">Id</label>
 							<div class="col-sm-6">
-								<input type="text" th:field="*{idInspection}" class="form-control"
+								<input type="text" th:field="*{id_Machine}" class="form-control"
 									readonly th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('idInspection')}"
-									th:errors="*{idInspection}"></small>
+									th:if="${#fields.hasErrors('id_Machine')}"
+									th:errors="*{id_Machine}"></small>
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-sm-2 col-form-label">Fecha de inspección: </label>
+							<label class="col-sm-2 col-form-label">Fecha de llegada: </label>
 							<div class="col-sm-6">
-								<input type="date" th:field="*{d_Inspection}" class="form-control"
+								<input type="date" th:field="*{d_Machine}" class="form-control"
 									th:errorclass="'form-control alert-danger'" /> <small
 									class="form-text text-danger"
-									th:if="${#fields.hasErrors('d_Inspection')}" th:errors="*{d_Inspection}"></small>
+									th:if="${#fields.hasErrors('d_Machine')}" th:errors="*{d_Machine}"></small>
 							</div>
 						</div>
 						
 						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Maquinas:</label>
+							<label for="color" class="col-sm-2 col-form-label">Marcas:</label>
 							<div class="col-sm-6">
 								<select class="custom-select custom-select-sm"
-									th:field="*{machine}">
-									<option th:each="machine : ${listMachines}"
-										th:value="${machine.id_Machine}" th:utext="${machine.cMachine}" />
+									th:field="*{brand}">
+									<option th:each="brand : ${listBrands}"
+										th:value="${brand.id_Brand}" th:utext="${brand.n_Brand}" />
 								</select>
 							</div>
 						</div>
 						
 						<div class="form-group row">
-							<label for="color" class="col-sm-2 col-form-label">Usuarios:</label>
+							<label for="color" class="col-sm-2 col-form-label">Areas:</label>
 							<div class="col-sm-6">
 								<select class="custom-select custom-select-sm"
-									th:field="*{user}">
-									<option th:each="user : ${listUsers}"
-										th:value="${user.id_User}" th:utext="${user.nUser}" />
+									th:field="*{areamachine}">
+									<option th:each="areamachine : ${listAreamachines}"
+										th:value="${areamachine.id_Areamachine}" th:utext="${areamachine.n_Areamachine}" />
 								</select>
 							</div>
 						</div>
@@ -181,7 +184,7 @@
 						<div class="form-group row">
 							<div class="col-sm-6">
 								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
-								<a href="/inspections/list" class="btn btn-danger">Cancelar</a>
+								<a href="/machines/list" class="btn btn-danger">Cancelar</a>
 							</div>
 						</div>
 						<p th:text="${mensaje}" class="form-text text-danger"></p>

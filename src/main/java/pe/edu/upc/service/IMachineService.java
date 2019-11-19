@@ -6,8 +6,8 @@ import java.util.Optional;
 import pe.edu.upc.entity.Machine;
 
 public interface IMachineService {
-	public Integer insert(Machine sparepart);
-
+	public Integer insert(Machine machine);
+	public void insertm(Machine machine);
 	public void delete(int id_Machine);
 
 	List<Machine> list();

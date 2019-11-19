@@ -71,6 +71,23 @@ public class MaintenanceController {
 		return "/maintenance/listMaintenance";
 	}
 
+	@PostMapping("/savem")
+	public String saveMaintenancem(@Valid Maintenance maintenance, BindingResult result, Model model, SessionStatus status)
+			throws Exception {
+		if (result.hasErrors()) {
+			model.addAttribute("listInspections", iService.list());
+			model.addAttribute("listUsers", uService.list());
+			model.addAttribute("listSpareparts", sService.list());
+			return "maintenance/maintenance";
+		} else {
+			mService.insert(maintenance);
+			model.addAttribute("mensaje", "El mantenimiento se guardó correctamente.");
+		}
+		model.addAttribute("listMaintenances",mService.list());
+
+		return "/maintenance/listMaintenance";
+	}
+	
 	@GetMapping("/list")
 	public String listMaintenance(Model model) {
 		try {
@@ -94,7 +111,7 @@ public class MaintenanceController {
 			model.addAttribute("listSpareparts", sService.list());
 			model.addAttribute("listInspections", iService.list());
 			model.addAttribute("listUsers", uService.list());
-			return "/maintenance/maintenance";
+			return "/maintenance/maintenancem";
 		}
 	}
 	

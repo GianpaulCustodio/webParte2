@@ -77,7 +77,7 @@
 			</a>
 
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
-					<a class="dropdown-item"  th:href="@{/areamachines/list}" >Área</a> <a
+							<a class="dropdown-item"  th:href="@{/areamachines/list}" >Área</a> <a
 						class="dropdown-item" th:href="@{/brands/list}" >Marca</a> <a
 						class="dropdown-item" th:href="@{/spareparts/list}">Repuesto</a> <a
 						class="dropdown-item" th:href="@{/machines/list}" >Máquina</a> <a
@@ -110,54 +110,95 @@
 		</ul>
 
 		<div id="content-wrapper">
-
 			<div class="container-fluid">
+				<div class="container-fluid">
 
-				<!-- Breadcrumbs-->
+					<!-- Page Heading -->
+					<h1 class="h3 mb-4 text-gray-800">Mantenimiento</h1>
 
-
-				<!-- Icon Cards-->
-
-
-				<!-- Area Chart Example-->
-
-
-				<!-- DataTables Example -->
-
-
-
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fas fa-table"></i> Máquina con más Incidencias:
+					<hr class="sidebar-divider">
+					<div th:object="${maintenance}" th:remove="tag">
+						
 					</div>
 
-					<div class="card-body">
-
-
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable">
-								<thead>
-									<tr>
-										<th scope="col">Id</th>
-										<th scope="col">Código</th>
-										<th scope="col">Cantidad de incidencias</th>
-									</tr>
-								</thead>
-
-								<tbody>
-									<tr align="center" th:each="s: ${listReportm}">
-										<td th:text="${s[0]}"></td>
-										<td th:text="${s[1]}"></td>
-										<td th:text="${s[2]}"></td>
-									</tr>
-
-								</tbody>
-							</table>
+					<form th:action="@{/maintenances/savem}" th:object="${maintenance}"
+						method="post">
+						<div class="form-group row">
+							<label for="tMaintenance" class="col-sm-2 col-form-label">Observaciones</label>
+							<div class="col-sm-6">
+								<input autofocus type="text" th:field="*{tMaintenance}"
+									class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('tMaintenance')}"
+									th:errors="*{tMaintenance}"></small>
+							
+							</div>
 						</div>
-					</div>
-					<div class="card-footer small text-muted">Rosita ♥</div>
-				</div>
+						
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Id</label>
+							<div class="col-sm-6">
+								<input type="text" th:field="*{idMaintenance}" class="form-control"
+									readonly th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('idMaintenance')}"
+									th:errors="*{idMaintenance}"></small>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-2 col-form-label">Fecha de mantenimiento </label>
+							<div class="col-sm-6">
+								<input type="date" th:field="*{d_Maintenance}" class="form-control"
+									th:errorclass="'form-control alert-danger'" /> <small
+									class="form-text text-danger"
+									th:if="${#fields.hasErrors('d_Maintenance')}" th:errors="*{d_Maintenance}"></small>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Inspecciones:</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{inspection}">
+									<option th:each="inspection : ${listInspections}"
+										th:value="${inspection.idInspection}" th:utext="${inspection.idInspection}" />
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Usuarios:</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{user}">
+									<option th:each="user : ${listUsers}"
+										th:value="${user.id_User}" th:utext="${user.nUser}" />
+								</select>
+							</div>
+						</div>
 
+						<div class="form-group row">
+							<label for="color" class="col-sm-2 col-form-label">Repuesto:</label>
+							<div class="col-sm-6">
+								<select class="custom-select custom-select-sm"
+									th:field="*{sparepart}">
+									<option th:each="sparepart : ${listSpareparts}"
+										th:value="${sparepart.id_Sparepart}" th:utext="${sparepart.nSparepart}" />
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group row">
+							<div class="col-sm-6">
+								<input type="submit" value="Guardar" class="btn btn-secondary"></input>
+								<a href="/maintenances/list" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+						<p th:text="${mensaje}" class="form-text text-danger"></p>
+					</form>
+				</div>
 			</div>
 			<!-- /.container-fluid -->
 

@@ -8,7 +8,7 @@ import pe.edu.upc.entity.Maintenance;
 
 public interface IMaintenanceService {
 	public Integer insert(Maintenance maintenance);
-
+	public void insertm(Maintenance maintenance);
 	public void delete(int idMaintenance);
 
 	List<Maintenance> list();

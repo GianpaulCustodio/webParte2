@@ -48,6 +48,11 @@ public class MaintenanceServiceImpl implements IMaintenanceService {
 		return mR.Reportmes();
 	}
 
+	@Override
+	public void insertm(Maintenance maintenance) {
+		mR.save(maintenance);
+	}
+
 
 
 }
